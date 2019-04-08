@@ -1,3 +1,14 @@
+// Sofi, te dejo mis observaciones a tu TP salpicadas a lo largo de tu codigo. 
+// Quiero mencionar lo prolijo y claro de tu codigo, el buen uso de las variables y la sintaxis. 
+// Una de las cosas que mas cuesta adquirir al principio de este camino es la prolijidad del codigo, y en tu caso
+// este es muy remarcable. Es un detalle, pero que te da una gran ventaja frente a otros candidatos junior. 
+// En general veo algunas soluciones muy creativas e interesantes, junto con algunas funciones en donde parece que 
+// te "rendiste" y decidiste decantar por el harcodeo. No esta mal, ya que habia que privilegiar la fecha de entrega, 
+// pero lo remarco porque creo que tenes un potencial mucho mas grande del que vos misma percibis. Tu enemigo numero 1, 
+// creo, es la frustracion y no tu comprension de javascript que, a juzgar por los resultados de este trabajo, es mucho mayor
+// a la que vos misma crees. 
+// Te felicito y te animo a que sigas mejorando. 
+
 
 var local = {
 
@@ -105,6 +116,41 @@ function vendedoraDelMes(mes, anio) {
 
 };
 
+// Una manera de hacerlo sin "hardcodear" los nombres seria asi:
+
+// function vendedoraDelMes(mes, anio) {
+//     var arrayVendedoras = [];
+//     for (var i = 0; i < local.vendedoras.length; i++) {
+//         var vendorasObj = {
+//             nombre: local.vendedoras[i],
+//             ventas: 0,
+//         }
+//         for (var j = 0; j < local.ventas.length; j++) {
+//             if (local.ventas[j].fecha.getMonth() + 1 == mes && local.ventas[i].fecha.getFullYear() == anio) {
+//                 var precioComponentes = precioMaquina(local.ventas[j].componentes)
+//                 if (local.vendedoras[i] === local.ventas[j].nombreVendedora) {
+//                     if (vendorasObj.nombre === local.ventas[j].nombreVendedora) {
+//                         vendorasObj.ventas = vendorasObj.ventas + precioComponentes;
+//                     }
+//                 }
+//             }
+//         }
+//         arrayVendedoras.push(vendorasObj)
+//     }
+
+//     var mejorVendedora;
+//     var ventaMax = 0;
+
+//     for (var k = 0; k < arrayVendedoras.length; k++) {
+//         if (arrayVendedoras[k].ventas) {
+//             ventaMax = arrayVendedoras[k].ventas;
+//             mejorVendedora = arrayVendedoras[k].nombre;
+//             return  mejorVendedora 
+//         }
+//     }
+// }
+
+
 console.log(vendedoraDelMes(1, 2019)); // "Ada" 
 
 // 1.d
@@ -170,6 +216,20 @@ function ventasVendedora(nombre) {
 
 };
 
+// podriamos habernos ahorrado bastante codigo en esta funcion , ya que no era necesario 
+// comparar uno por uno los nombres de las vendedoras
+// Asi:
+// function ventasVendedora(nombre) {
+//     var ventasVendedora = 0;
+//     for (var i = 0; i < local.ventas.length; i++) {
+//         if (local.ventas[i].nombreVendedora === nombre) {
+//            ventasVendedora += precioMaquina(local.ventas[i].componentes)
+//         }
+
+//     }
+//     return ventasVendedora 
+// }
+
 console.log(ventasVendedora("Grace")); // 900
 
 // 1.f
@@ -220,6 +280,8 @@ function huboVentas(mes, anio) {
     };
 
 };
+
+// Muy buena solucion! 
 
 console.log(huboVentas(3, 2019)); // false
 
@@ -302,6 +364,10 @@ console.log(ventasSucursal("Centro")); // 4195
 // genere una variable por vendedora, no un hice un .push para quenerar un nuevo array con todos los nombres como hice con ventasSucursal.
 // En el caso de haberlo hecho, agregaría un if else a la función para validar la propiedad con el parámetro y podría reutilizar mi código.
 
+
+// bien! 
+
+
 // 2.f
 
 function sucursalDelMes(mes, anio) {
@@ -332,6 +398,8 @@ function sucursalDelMes(mes, anio) {
         return 'Caballito'
     };
 };
+
+// podemos hacer esta funcion mas dinamica de la misma manera en que te comente en VendedoraDelMes
 
 console.log(sucursalDelMes(1, 2019)); // "Centro"
 
